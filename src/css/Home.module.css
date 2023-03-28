@@ -1,0 +1,51 @@
+.card {
+  width: 45rem;
+  height: 25rem;
+  background-color: #F8FCFB;
+  border-radius: 15px;
+  padding: 1rem;
+  overflow-y: scroll;
+}
+
+.heading {
+  margin-left: 1rem;
+  margin-top: 1rem;
+  margin-top: 0;
+}
+.heading>h3 {
+  font-size: x-large;
+  margin-bottom: 0;
+}
+.heading>p {
+  font-size: medium;
+  margin-top: 0.3rem;
+}
+.heading>p>a {
+  font-weight: bold;
+  color: #449183;
+}
+
+.content {
+  margin-left: 1rem;
+  margin-top: 1rem;
+}
+
+.file {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0.6rem;
+}
+.file>p {
+  font-weight: 500;
+  font-size: large;
+  margin: 0;
+}
+.file>button {
+  margin-left: 0;
+}
+
+.buttons {
+  display: flex;
+  gap: 0.5rem;
+}
