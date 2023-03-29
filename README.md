@@ -1,4 +1,4 @@
-# Project Name
+# Filesive
 
 This is the frontend code of a open source file sharing app made using React.
 
