@@ -7,6 +7,7 @@ function Home() {
   // State variables for picked file and list of files
   const [pickedFile, setPickedFile] = useState(null)
   const [files, setFiles] = useState([])
+  const [uploaded, setUploaded] = useState(false)
   const navigate = useNavigate()
   
   // Function to delete a file
@@ -89,13 +90,14 @@ function Home() {
       var formData = new FormData()
       formData.append('file', pickedFile)
       
+      setUploaded(true)
       axios({
         method: 'post',
         url: `${process.env.REACT_APP_API_ROUTE}/upload-file`,
         data: formData,
         headers: { 'Content-Type': 'multipart/form-data', Authorization: `Bearer ${localStorage.getItem('jwtToken')}` }
       })
-      .then((res) => {  
+      .then(() => {  
         axios.get(`${process.env.REACT_APP_API_ROUTE}/all-files`, {
           headers: {
             Authorization: `Bearer ${localStorage.getItem('jwtToken')}`
@@ -103,6 +105,7 @@ function Home() {
         })
         .then((res) => {
           setFiles(res.data)
+          setUploaded(false)
         })
   
         setPickedFile(null)
@@ -134,7 +137,7 @@ function Home() {
         console.error(err)
       })
     }
-  }, [])
+  }, [navigate])
 
   return (
     <div className="container">
@@ -142,6 +145,7 @@ function Home() {
         <div className={styles.heading}>
           <h3>Filesive - File Store & Sharing App 📂</h3>
           <p>Quick ⚡ and fast 🚀file storing and sharing app made by <a>Ege Okyay</a> with 💖</p>
+          <p style={(uploaded) ? { display: 'block' } : { display: 'none' }}><b>Uploading file...</b></p>
           <button className="success-btn" onClick={() => onPickFile()}>Upload File</button>
           <input id="fileInput" style={{display: 'none'}} type="file" onChange={(e) => handleFile(e)} />
           <button onClick={() => (logout())} style={{marginLeft: "0.5rem"}} className="danger-btn">Logout</button>

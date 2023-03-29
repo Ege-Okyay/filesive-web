@@ -17,13 +17,13 @@ function SharedFile() {
   const convertBytes = function(bytes) {
     const sizes = ["Bytes", "KB", "MB", "GB", "TB"]
   
-    if (bytes == 0) {
+    if (bytes === 0) {
       return "n/a"
     }
   
     const i = parseInt(Math.floor(Math.log(bytes) / Math.log(1024)))
   
-    if (i == 0) {
+    if (i === 0) {
       return bytes + " " + sizes[i]
     }
   
@@ -39,9 +39,6 @@ function SharedFile() {
       }
     })
     .then((res) => {
-      console.log(res)
-
-
       // If the file is not shared, redirect to the home page
       if (!res.data.file.shared) {
         navigate('/')
@@ -55,7 +52,7 @@ function SharedFile() {
       setUploader(res.data.uploader)
       setFile(res.data.file)
     })
-  }, [])
+  }, [navigate, id])
 
   // If the user is not authenticated, render a message to prompt them to login or register
   if (localStorage.getItem('jwtToken') === null) {
