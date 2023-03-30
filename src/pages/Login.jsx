@@ -8,6 +8,7 @@ function Login() {
   const [email ,setEmail] = useState('')
   const [password, setPassword] = useState('')
   const [message, setMessage] = useState('')
+  const [messageClass, setMessageClass] = useState('')
 
   const navigate = useNavigate()
 
@@ -23,6 +24,8 @@ function Login() {
           password
         }
       })
+
+      setMessageClass(response.data.class)
 
       // If login fails, display error message
       if (response.data.class === 'error') {
@@ -48,7 +51,7 @@ function Login() {
     if (localStorage.getItem('jwtToken') !== null) {
       navigate('/')
     }
-  }, [])
+  }, [navigate])
 
   return (
     <div className="container">
@@ -58,7 +61,7 @@ function Login() {
           <p>Don't got an account? <Link className="inline-link" to={'/auth/register'}>Register</Link></p>
         </div>
         <div className={styles.content}>
-          <div style={(message === '') ? { display: 'none' } : { display: 'block' }} className={styles.responseMsg}>
+          <div style={(message === '') ? { display: 'none' } : { display: 'block' } && (messageClass === 'error') ? { backgroundColor: "rgb(255, 96, 96)" } : { backgroundColor: "rgb(88, 211, 79)" }} className={styles.responseMsg}>
             { message }
           </div>
           <div className={styles.userForm}>

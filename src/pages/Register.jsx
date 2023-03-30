@@ -9,6 +9,7 @@ function Register() {
   const [password, setPassword] = useState('') // setting up state to store user's password
   const [confirmPassword, setConfirmPassword] = useState('') // setting up state to store user's confirmed password
   const [message, setMessage] = useState('') // setting up state to display error/success messages
+  const [messageClass, setMessageClass] = useState('')
 
   const navigate = useNavigate() // initializing the navigate hook
   
@@ -23,6 +24,8 @@ function Register() {
           confirmPassword
         }
       })
+
+      setMessageClass(response.data.class)
 
       if (response.data.class === 'error') { // if there is an error during registration, display the error message
         return setMessage(response.data.msg)
@@ -43,7 +46,7 @@ function Register() {
     if (localStorage.getItem('jwtToken') !== null) {
       navigate('/')
     }
-  }, [])
+  }, [navigate])
 
   return (
     <div className="container">
@@ -53,7 +56,7 @@ function Register() {
           <p>Already got an account? <Link className="inline-link" to={'/auth/login'}>Login</Link></p> {/* Link component to navigate to the login page */}
         </div>
         <div className={styles.content}>
-          <div style={(message === '') ? { display: 'none' } : { display: 'block' }} className={styles.responseMsg}> {/* displaying error/success message */}
+          <div style={(message === '') ? { display: 'none' } : { display: 'block' } && (messageClass === 'error') ? { backgroundColor: "rgb(255, 96, 96)" } : { backgroundColor: "rgb(88, 211, 79)" }} className={styles.responseMsg}> {/* displaying error/success message */}
             <span>
               { message }
             </span>

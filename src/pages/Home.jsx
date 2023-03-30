@@ -66,7 +66,7 @@ function Home() {
         Authorization: `Bearer ${localStorage.getItem('jwtToken')}`
       }
     })
-    .then((res) => {
+    .then(() => {
       // Navigate to the shared file page
       navigate(`/shared-file/${fileId}`)
     })
@@ -144,7 +144,7 @@ function Home() {
       <div className={styles.card}>
         <div className={styles.heading}>
           <h3>Filesive - File Store & Sharing App 📂</h3>
-          <p>Quick ⚡ and fast 🚀file storing and sharing app made by <a>Ege Okyay</a> with 💖</p>
+          <p>Quick ⚡ and fast 🚀file storing and sharing app made by <a href="https://github.com/Ege-Okyay">Ege Okyay</a> with 💖</p>
           <p style={(uploaded) ? { display: 'block' } : { display: 'none' }}><b>Uploading file...</b></p>
           <button className="success-btn" onClick={() => onPickFile()}>Upload File</button>
           <input id="fileInput" style={{display: 'none'}} type="file" onChange={(e) => handleFile(e)} />
