@@ -4,14 +4,11 @@ import { useNavigate, useParams } from "react-router-dom"
 import styles from '../css/SharedFile.module.css'
 
 function SharedFile() {
-  // useParams is a React hook that retrieves URL parameters
   const { id } = useParams()
 
-  // useState is a React hook that manages component state
   const [uploader, setUploader] = useState({})
   const [file, setFile] = useState({})
 
-  // useNavigate is a React hook that allows programmatic navigation
   const navigate = useNavigate()
 
   const convertBytes = function(bytes) {

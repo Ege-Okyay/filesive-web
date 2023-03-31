@@ -143,7 +143,7 @@ function Home() {
     <div className="container">
       <div className={styles.card}>
         <div className={styles.heading}>
-          <h3>Filesive - File Store & Sharing App 📂</h3>
+          <h3>Filesive - File Storing & Sharing App 📂</h3>
           <p>Quick ⚡ and fast 🚀file storing and sharing app made by <a href="https://github.com/Ege-Okyay">Ege Okyay</a> with 💖</p>
           <p style={(uploaded) ? { display: 'block' } : { display: 'none' }}><b>Uploading file...</b></p>
           <button className="success-btn" onClick={() => onPickFile()}>Upload File</button>
