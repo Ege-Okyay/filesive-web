@@ -2,7 +2,7 @@
 
 This is the frontend code of a open source file sharing app made using React.
 
-Link to the [Linked In](https://www.linkedin.com/in/ege-okyay) post:
+Link to the [Linked In](https://www.linkedin.com/in/ege-okyay) post: https://www.linkedin.com/posts/ege-okyay_ege-okyay-overview-activity-7047580574147846145-6Gf5?utm_source=share&utm_medium=member_desktop
 
 Link to the [Youtube](https://www.youtube.com/channel/UCw-OlUhhJfjcvKbQlmg1Qtw) video:
 
